@@ -26,9 +26,10 @@ public void keyPressed(){
     bob.setXspeed(0);
     keys = false;
     bob.myPointDirection = 0;
+    rotate((float)Math.random()*100);
     bob.myCenterX = (int)(Math.random()*400);
     bob.myCenterY = (int)(Math.random()*400);
-    bob.turn((int)(Math.random()*10));
+    bob.turn((int)(Math.random()*50));
   }
   if(key == 'a'){
     bob.accelerate(1);
