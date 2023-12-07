@@ -2,6 +2,7 @@ Spaceship bob = new Spaceship();
 Star[] nightSky = new Star[200];
 boolean keys = false;
 ArrayList<Asteroid> sam = new ArrayList<Asteroid>();
+ArrayList <Bullet> shots = new ArrayList<Bullet>();
 
 public void setup() 
 {
@@ -33,9 +34,23 @@ public void draw()
       sam.get(i).show();
     }
   }
+  for(int j = sam.size()-1; j >= 0; j--){
+    for(int i = shots.size()-1; i >= 0; i--){
+      float d = dist((float) shots.get(i).getX(), (float)shots.get(i).getY(), (float)sam.get(j).getX(), (float)sam.get(j).getY());
+      if(d<20){
+        sam.remove(j);
+        shots.remove(i);
+        break;
+      }
+      else{
+        shots.get(i).move();
+        shots.get(i).show();
+      }
+    }
+  }
 }
 public void keyPressed(){
-  if(key == 'h'){
+  if(key == 's'){
     bob.accelerate(0);
     bob.setXspeed(0);
     keys = false;
@@ -44,14 +59,17 @@ public void keyPressed(){
     bob.myCenterY = (int)(Math.random()*400);
     bob.turn((int)(Math.random()*50));
   }
-  if(key == 'a'){
+  if(key == 'w'){
     bob.accelerate(1);
     keys = true;
   }
-  if(key == 'r'){
+  if(key == 'd'){
     bob.turn(20);
   }
-  if(key == 'l'){
+  if(key == 'a'){
     bob.turn(-20);
+  }
+  if(key == ' '){
+    shots.add(new Bullet(bob));
   }
 }
