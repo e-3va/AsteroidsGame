@@ -2,7 +2,7 @@ Spaceship bob = new Spaceship();
 Star[] nightSky = new Star[200];
 boolean keys = false;
 ArrayList<Asteroid> sam = new ArrayList<Asteroid>();
-ArrayList <Bullet> shots = new ArrayList<Bullet>();
+ArrayList<Bullet> shots = new ArrayList<Bullet>();
 
 public void setup() 
 {
