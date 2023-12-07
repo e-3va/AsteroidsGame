@@ -69,7 +69,7 @@ public void keyPressed(){
   if(key == 'a'){
     bob.turn(-20);
   }
-  if(key == 'b'){
+  if(key == ' '){
     shots.add(new Bullet(bob));
   }
 }
